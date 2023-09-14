@@ -2,7 +2,6 @@ import request from '@/utils/request'
 
 // 借款表单管理
 export default {
-  
   // 新增申请
   add(data) {
     return request({
