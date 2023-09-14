@@ -27,12 +27,12 @@ FYI: https://stackoverflow.com/questions/413807/is-there-a-way-for-non-root-proc
 python ./build.py build
 ```
 
-#### Pull from remote or use any available images from local
+#### Pull from remote or use any available local images and run
 ```bash
 python ./build.py
 ```
 
-##### Upgrade your local image with the one built remotely by CI
+##### Upgrade your local image with the one built remotely by CI and run
 ```bash
 docker compose pull
 python ./build.py
@@ -45,13 +45,13 @@ python ./build.py
 - Java 8
 - Nodejs 10.x
 
-#### Frontend
+#### Debug the frontend
 ```bash
 npm install
 npm run dev
 ```
 
-#### Backend
+#### Run the backend
 ```bash
 mvn dependency:resolve
 mvn spring-boot:run
