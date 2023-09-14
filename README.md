@@ -22,7 +22,7 @@ FYI: https://stackoverflow.com/questions/413807/is-there-a-way-for-non-root-proc
 - Docker Compose Plugin/Standalone / ...
 - Python 3.x
 
-#### Build images locally and start docker container
+#### Build images locally and run
 ```bash
 python ./build.py build
 ```
@@ -32,7 +32,7 @@ python ./build.py build
 python ./build.py
 ```
 
-##### Replace local images from remote (aka. update from remote)
+##### Upgrade your local image with the one built remotely by CI
 ```bash
 docker compose pull
 python ./build.py
