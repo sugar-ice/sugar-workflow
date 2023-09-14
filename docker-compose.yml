@@ -13,18 +13,19 @@ services:
       - ./_mysql_data:/var/lib/mysql
   backend:
     container_name: sugar-workflow-back
-    image: ghcr.io/sugar-ice/sugar-workflow-back:main
+    image: ghcr.io/sugar-ice/sugar-workflow-back
     ports:
       - 127.0.0.1:8080:8080
     depends_on:
       - mysql
+      - frontend
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/activiti?nullCatalogMeansCurrent=true&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&allowMultiQueries=true
       SPRING_DATASOURCE_USERNAME: root
       MYSQL_ROOT_PASSWORD: 123456
   frontend:
     container_name: sugar-workflow-front
-    image: ghcr.io/sugar-ice/sugar-workflow-front:main
+    image: ghcr.io/sugar-ice/sugar-workflow-front
     ports:
       - 127.0.0.1:80:80
 

@@ -5,7 +5,7 @@
 #### Prerequisite
 
 - Docker
-- Docker Compose
+- Docker Compose Plugin / Docker Compose Standalone
 - Python 3.x
 
 #### Build images locally and start docker container
@@ -20,7 +20,7 @@ python ./build.py
 
 ##### Replace local images from remote (aka. update from remote)
 ```bash
-docker pull
+docker compose pull
 python ./build.py
 ```
 
