@@ -19,8 +19,7 @@ services:
     ports:
       - 127.0.0.1:8080:8080
     depends_on:
-      mysql:
-        condition: service_healthy
+      - mysql
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/activiti?nullCatalogMeansCurrent=true&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&allowMultiQueries=true
       SPRING_DATASOURCE_USERNAME: root
