@@ -87,7 +87,7 @@ export default {
             selectdata:[],
             row:{},
             processStatus:[
-                {value: 0, label: '已撤回'},
+                  {value: 0, label: '已撤回'},
                 {value: 1, label: '待提交'},
                 {value: 2, label: '处理中'},
                 {value: 3, label: '已完成'},
@@ -123,7 +123,7 @@ export default {
         // 切换页码
         handleCurrentChange(data){
             this.page.current=data
-            this.fetchData()
+             this.fetchData()
         },
         // 查询
         queryData(){
@@ -165,8 +165,8 @@ export default {
         },
         // 审批历史
         clickProcessHistory(row){
-            this.row=row
-            this.$refs.historyRef.visible=true
+             this.row=row
+             this.$refs.historyRef.visible=true
         }
     }
 }

@@ -76,7 +76,30 @@ export default {
      components: {LeaveForm,SubmitApply,CancelApply,History},
     data(){
         return{
-            list: [],
+             list: [
+              {
+                "id":"leave2:3:62509",
+                "username": "meng",
+                "title":"怀孕了",
+                "leaveTypeStr":"事假",
+                "startDateStr":"2022-02-24 08:12:12",
+                "endDateStr":"2023-04-15 15:37:36",
+                "statusStr": "处理中",
+                "status": 2,
+                "createDateStr": "2022-01-24 17:07:16"
+              },
+              {
+                    "id":"test:1:60011",
+                    "username": "xue",
+                    "title":"调休22",
+                    "leaveTypeStr":"调休",
+                    "startDateStr":"2022-02-24 08:12:12",
+                    "endDateStr":"2023-04-15 15:37:36",
+                    "statusStr": "已撤回",
+                    "status": 0,
+                    "createDateStr": "2022-01-24 17:07:16"
+                },
+            ],
             page:{
                 current:1,
                 size:10,

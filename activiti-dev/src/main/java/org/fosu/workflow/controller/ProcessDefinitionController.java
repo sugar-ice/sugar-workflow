@@ -3,12 +3,14 @@ package org.fosu.workflow.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.activiti.engine.HistoryService;
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.repository.DeploymentBuilder;
 import org.activiti.engine.repository.ProcessDefinition;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.fosu.workflow.req.ProcDefiREQ;
+import org.fosu.workflow.req.TaskREQ;
 import org.fosu.workflow.service.ProcessDefinitionService;
 import org.fosu.workflow.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.zip.ZipInputStream;
 
 @Api("流程定义管理")
@@ -32,7 +37,8 @@ public class ProcessDefinitionController {
     @Autowired
     private RepositoryService repositoryService;
 
-    @ApiOperation("查询部署的流程定义数据列表，如果有多个相同标识key的流程时，只查询其最新版本")
+
+    @ApiOperation("查询部署的流程定义数据列表，如果有w多个相同标识key的流程时，只查询其最新版本")
     @PostMapping("/list")
     public Result getProcDefiList(@RequestBody ProcDefiREQ procDefiREQ) {
         return processDefinitionService.getProcDefiList(procDefiREQ);
@@ -128,4 +134,5 @@ public class ProcessDefinitionController {
             return Result.error("部署失败");
         }
     }
+
 }

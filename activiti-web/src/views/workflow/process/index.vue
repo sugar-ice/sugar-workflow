@@ -99,7 +99,32 @@ export default {
         return {
             url: null, // 流程图
             key: null, // 流程key
-            list: [],
+            list: [
+              {
+                "id":"leave2:3:62509",
+                "name":"请假分支演示",
+                "key":"leave2",
+                "version":3,
+                "state": '已启动',
+                "xmlName":"请假分支演示.bpmn20.xml",
+                "pngName":"请假分支演示.leave2.png",
+                "businessRoute": "Leave", // 业务列表路由名
+                "formName": "LeaveForm", // 表单组件名
+                "deploymentTime":"2020-01-24 17:07:16",
+            },
+            {
+                "id":"test:1:60011",
+                "name":"连线注释显示测试",
+                "key":"test",
+                "version":1,
+                "state": '已暂停',
+                "xmlName":"连线注释显示测试.bpmn20.xml",
+                "pngName":"连线注释显示测试.test.png",
+                "businessRoute": "Line", //业务列表路由名
+                "formName": "lineForm", // 表单组件名
+                "deploymentTime":"2020-12-24 11:07:10",
+            },
+            ],
             page: {
                 current: 1,
                 size: 20,

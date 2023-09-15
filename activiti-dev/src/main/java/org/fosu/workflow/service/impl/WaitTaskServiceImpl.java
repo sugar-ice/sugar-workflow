@@ -59,8 +59,7 @@ public class WaitTaskServiceImpl implements WaitTaskService {
         if (StringUtils.isNotEmpty(req.getTaskName())) {
             query.taskNameLike("%" + req.getTaskName() + "%");
         }
-        List<Task> taskList = query.listPage(req.getFirstResult(),
-                req.getSize());
+        List<Task> taskList = query.listPage(req.getFirstResult(), req.getSize());
         // 用于前端显示页面，总记录数
         long total = query.count();
         List<Map<String, Object>> records = taskList.stream().map(task ->

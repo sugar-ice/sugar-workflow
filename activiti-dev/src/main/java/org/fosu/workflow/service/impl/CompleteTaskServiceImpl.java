@@ -40,6 +40,8 @@ public class CompleteTaskServiceImpl implements CompleteTaskService {
             Map<String, Object> map = new HashMap<>();
             map.put("taskId", task.getId()); // 任务ID
             map.put("taskName", task.getName()); // 任务名称
+            map.put("taskStartTime", task.getStartTime());
+            map.put("taskEndTime", task.getEndTime());
             map.put("taskCreateTime", DateUtils.format(task.getCreateTime())); // 任务的创建时间
             map.put("taskAssignee", task.getAssignee()); // 任务的办理人：为null，说明当前是候选人，不是办理人，要先签收
             map.put("processInstanceId", task.getProcessInstanceId());
