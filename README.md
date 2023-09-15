@@ -16,6 +16,12 @@ sysctl net.ipv4.ip_unprivileged_port_start=80
 
 FYI: https://stackoverflow.com/questions/413807/is-there-a-way-for-non-root-processes-to-bind-to-privileged-ports-on-linux
 
+If you are using podman, uncomment the line in docker-compose.yml: 
+
+```yml
+    # userns: keep-id
+```
+
 #### Prerequisite
 
 - Docker
