@@ -27,4 +27,28 @@ public interface WaitTaskService {
      * @return 结果数据封装类
      */
     Result completeTask(TaskCompleteREQ req);
+
+    /**
+     * 任务转办，把任务交给别人处理
+     * @param taskId 任务id
+     * @param assigneeUserKey 用户id
+     * @return 结果数据封装类
+     */
+    Result turnTask(String taskId, String assigneeUserKey);
+
+    /**
+     * 通过流程实例ID获取已完成历史任务节点，用于驳回功能
+     * @param taskId 流程实例ID
+     * @return 结果数据封装类
+     */
+    Result getBackNodes(String taskId);
+
+    /**
+     * 驳回指定历史节点
+     * @param taskId 流程实例ID
+     * @param targetActivityId 历史节点
+     * @return 结果数据封装类
+     */
+    Result backProcess(String taskId, String targetActivityId);
+
 }

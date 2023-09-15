@@ -3,6 +3,7 @@ package org.fosu.workflow.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.fosu.workflow.req.ProcInstREQ;
 import org.fosu.workflow.req.StartREQ;
 import org.fosu.workflow.service.ProcessInstanceService;
 import org.fosu.workflow.utils.Result;
@@ -53,4 +54,37 @@ public class ProcessInstanceController {
         return processInstanceService.getHistoryInfoList(procInstId);
     }
 
+    @ApiOperation("查询正在运行中的流程实例")
+    @PostMapping("/list/running")
+    public Result getProcInstListRunning(@RequestBody ProcInstREQ req) {
+        return processInstanceService.getProcInstListRunning(req);
+    }
+
+    @ApiOperation("挂起或激活单个流程实例")
+    @PutMapping("/state/{procInstId}")
+    public Result updateProcInstState(@PathVariable("procInstId") String
+                                              procInstId) {
+        return processInstanceService.updateProcInstState(procInstId);
+    }
+
+    @ApiOperation("作废（删除）流程实例，不会删除历史记录")
+    @DeleteMapping("/{procInstId}")
+    public Result deleteProcInst(@PathVariable("procInstId") String
+                                         procInstId) {
+        return processInstanceService.deleteProcInst(procInstId);
+    }
+
+    @ApiOperation("查询已结束的流程实例")
+    @PostMapping("/list/finish")
+    public Result getProcInstFinish(@RequestBody ProcInstREQ req) {
+        return processInstanceService.getProcInstFinish(req);
+    }
+
+    @ApiOperation("删除已结束流程实例和历史记录")
+    @DeleteMapping("/history/{procInstId}")
+    public Result deleteProcInstAndHistory(@PathVariable String
+                                                   procInstId) {
+        return
+                processInstanceService.deleteProcInstAndHistory(procInstId);
+    }
 }

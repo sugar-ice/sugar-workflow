@@ -1,5 +1,6 @@
 package org.fosu.workflow.service;
 
+import org.fosu.workflow.req.ProcInstREQ;
 import org.fosu.workflow.req.StartREQ;
 import org.fosu.workflow.utils.Result;
 
@@ -42,5 +43,40 @@ public interface ProcessInstanceService {
      * @return 数据封装实体类
      */
     Result getHistoryInfoList(String procInstId);
+
+    /**
+     * 查询正在运行中的流程实例
+     * @param req 流程实例条件请求类
+     * @return 数据封装实体类
+     */
+    Result getProcInstListRunning(ProcInstREQ req);
+
+    /**
+     * 挂起或激活单个流程实例
+     * @param procInstId 流程id
+     * @return 数据封装实体类
+     */
+    Result updateProcInstState(String procInstId);
+
+    /**
+     * 作废（删除）流程实例，不会删除历史记录
+     * @param procInstId 流程id
+     * @return 数据封装实体类
+     */
+    Result deleteProcInst(String procInstId);
+
+    /**
+     * 查询已结束的流程实例
+     * @param req 查询条件实体类
+     * @return 数据封装实体类
+     */
+    Result getProcInstFinish(ProcInstREQ req);
+
+    /**
+     * 删除流程实例与历史记录
+     * @param procInstId 流程id
+     * @return 数据封装实体类
+     */
+    Result deleteProcInstAndHistory(String procInstId);
 
 }
