@@ -6,7 +6,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 123456
       MYSQL_DATABASE: activiti
-    userns: keep-id
+    # userns: keep-id
     ports:
       - 127.0.0.1:3306:3306
     volumes:
