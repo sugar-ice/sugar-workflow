@@ -5,6 +5,7 @@ server:
     session:
       cookie:
         path: /
+        secure: true
 spring:
   datasource:
     druid:

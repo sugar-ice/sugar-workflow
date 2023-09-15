@@ -1,7 +1,13 @@
 import subprocess
+import shutil
 
 remote = "ghcr.io/sugar-ice/sugar-workflow-back"
 
-subprocess.run(["docker", "build", "-t", remote, "."], check=True)
-subprocess.run(["docker", "rm", "-f", "sugar-workflow-back"], check=False)
-subprocess.run(["docker", "compose", "up", "-d"], check=True)
+# Check if Docker is available
+if shutil.which("docker"):
+    print("Using Docker")
+    subprocess.run(["docker", "build", "-t", remote, "."], check=True)
+else:
+    # Use Podman as an alternative
+    print("Using Podman")
+    subprocess.run(["podman", "build", "-t", remote, "."], check=True)
